@@ -1,0 +1,30 @@
+<div class="container mt-3">
+<table class="table ">
+  <thead>
+  <tr>
+    <th scope="col">STATUS
+    </th>
+    <th scope="col">ID</th>
+    <th scope="col">TITLE</th>
+    <th scope="col">DESCRIPTION</th>
+    <th scope="col">DATE</th>
+    <th scope="col">ACTION</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let offre of Listes_Offres_non_Pub">
+    <th scope="row">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value=""  (change)="publOffre(offre.offre_id)" />
+      </div>
+    </th>
+<!--    /publierOffre/{id}-->
+    <td>{{offre.offre_id}}</td>
+    <td>{{offre.title}}</td>
+    <td>{{offre.description}}</td>
+    <td>{{offre.date_offre}}</td>
+    <td><button type="button" class="btn btn-outline-secondary btn-rounded" (click)="detailOffre(offre.offre_id)" mdbRipple rippleColor="dark">DETAIL</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,49 @@
+<div class="container mt-3">
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+    <tr>
+      <th>CANDIDAT</th>
+      <th>L'OFFRE</th>
+      <th>STATUS</th>
+      <th>CV</th>
+      <th>ACTIONS</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let demande of Listes_Demandes " >
+      <ng-container *ngIf="demande.status === 'Accepté'">
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+            src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+            alt=""
+            style="width: 45px; height: 45px"
+            class="rounded-circle"
+          />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">{{demande.candidat.nom}}</p>
+            <p class="text-muted mb-0">{{demande.candidat.id_Candidat}}</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{demande.offre.title}}</p>
+        <p class="text-muted mb-0">{{demande.offre.title}}</p>
+      </td>
+      <td>
+
+        <!--      <p>{{demande.candidat.status}}</p>-->
+        <span [ngStyle]="{'color':'black'}">{{demande.status}}</span>
+      </td>
+      <td><a href="{{ demande.candidat.url }}" target="_blank" download="cv.pdf">CV</a></td>
+      <td>
+
+        <button  class="btn btn-danger" >
+          <i class="bi bi-trash"></i> </button>
+
+      </td>
+      </ng-container>
+    </tr>
+    </tbody>
+  </table>
+</div>

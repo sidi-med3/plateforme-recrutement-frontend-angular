@@ -1,0 +1,114 @@
+<div class="card">
+  <div class="bi-card-heading"></div>
+  <div class="card-body">
+    <section class="py-5">
+      <div cnlass="container px-5">
+        <!-- Contact form-->
+        <div class="bg-light rounded-4 py-5 px-4 px-md-5">
+          <div class="text-center mb-5">
+            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"></div>
+            <h1 class="fw-bolder">Postuler sur L'offre </h1>
+
+          </div>
+          <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+
+<!--              <form id="contactForm" data-sb-form-api-token="API_TOKEN" [formGroup]="addCandidatForm"  (ngSubmit)="addNewCandidat()">-->
+              <form (ngSubmit)="addNewCandidat()"  #formulaire="ngForm" id="contactForm" data-sb-form-api-token="API_TOKEN"   enctype="multipart/form-data" >
+<!--                <div class="form-floating mb-3">-->
+<!--                  <input class="form-control" formControlName="nom" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />-->
+<!--                  <small *ngIf="addCandidatForm.controls['nom'].errors && addCandidatForm.controls['nom'].touched" class="text-danger">-->
+<!--                    title is required-->
+<!--                  </small>-->
+<!--                  <label for="name">Nom et Prenom</label>-->
+<!--                  <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>-->
+<!--                </div>-->
+                <div class="form-floating mb-3">
+                  <input class="form-control" name="id_Candidat" [(ngModel)]="candidat.id_Candidat" id="" type="text" [formControl]="idCandidatControle" placeholder="Enter your number..." data-sb-validations="required" />
+                  <small *ngIf="idCandidatControle.hasError('required') && idCandidatControle.touched" class="text-danger">
+                    numero du telephone est obligatoire et dois contenir 8 chiffres
+                  </small>
+<!--                                  <small *ngIf="formulaire.controls.id_Candidat.invalid && formulaire.controls.id_Candidat.touched" class="text-danger">-->
+<!--                                    id is required-->
+<!--                                  </small>-->
+                  <label for="name">Numero du telephone</label>
+                  <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                </div>
+              <div class="form-floating mb-3">
+                <input class="form-control" name="nom"  [(ngModel)]="candidat.nom" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+<!--                <small *ngIf="addCandidatForm.controls['nom'].errors && addCandidatForm.controls['nom'].touched" class="text-danger">-->
+<!--                  title is required-->
+<!--                </small>-->
+                <label for="name">Nom et Prenom</label>
+                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+              </div>
+<!--                <div class="form-floating mb-3">-->
+<!--                  <input class="form-control" formControlName="id_Candidat" id="" type="text" placeholder="Enter your number..." data-sb-validations="required" />-->
+<!--                  <small *ngIf="addCandidatForm.controls['id_Candidat'].errors && addCandidatForm.controls['id_Candidat'].touched" class="text-danger">-->
+<!--                    id is required-->
+<!--                  </small>-->
+<!--                  <label for="name">Numero du telephone</label>-->
+<!--                  <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>-->
+<!--                </div>-->
+
+<!--                <div class="form-floating mb-3">-->
+<!--                  <input class="form-control" formControlName="email" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />-->
+<!--                  <label for="email">Email address</label>-->
+<!--                  <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>-->
+<!--                  <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>-->
+<!--                </div>-->
+              <div class="form-floating mb-3">
+                <input class="form-control" name="email" [(ngModel)]="candidat.email" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                <label for="email">Email address</label>
+                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+              </div>
+<!--                <div class="form-floating mb-3">-->
+<!--                  <input class="form-control" formControlName="cv" (change)="onCvFileSelected($event)" id="cv" accept=".pdf" type="file"  placeholder="name@example.com" data-sb-validations="required,email" />-->
+<!--                  <label for="email">CV</label>-->
+<!--                  <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>-->
+<!--                  <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>-->
+<!--                </div>-->
+              <div class="form-floating mb-3">
+                <input class="form-control" name="cv" type="file"  (change)="onCvFileSelected($event)" id="cv"   placeholder="name@example.com" data-sb-validations="required,email" />
+                <label for="email">CV</label>
+                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+              </div>
+                <div class="d-none" id="submitSuccessMessage">
+                  <div class="text-center mb-3">
+                    <div class="fw-bolder">Form submission successful!</div>
+                    To activate this form, sign up at
+                    <br />
+                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                  </div>
+                </div>
+                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                <!-- Submit Button-->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button [disabled]="!formulaire.valid" class="btn btn-primary me-md-2" id="submitButton" type="submit" mdbRipple>
+                    <i class="fas fa-arrow-right">Next</i> </button></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>
+<!-- Footer-->
+<footer class="bg-white py-4 mt-auto">
+  <div class="container px-5">
+    <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+      <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
+      <div class="col-auto">
+        <a class="small" href="#!">Privacy</a>
+        <span class="mx-1">&middot;</span>
+        <a class="small" href="#!">Terms</a>
+        <span class="mx-1">&middot;</span>
+        <a class="small" href="#!">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
